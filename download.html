@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obscura | Secure Download</title>
+    <title>Download Obscura | Secure Gateway</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Obscura" />
+<link rel="manifest" href="/site.webmanifest" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -12,8 +19,7 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030303; overflow: hidden; }
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.05); }
         
-        /* Preloader Styles */
-        #preloader { position: fixed; inset: 0; background: #030303; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, visibility 0.8s; }
+        #preloader { position: fixed; inset: 0; background: #030303; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease; }
         .loader-bar-container { width: 150px; height: 1px; background: rgba(255,255,255,0.1); margin-top: 20px; }
         .loader-bar-fill { width: 0%; height: 100%; background: #fff; transition: width 1.2s ease-in-out; }
         .loaded #preloader { opacity: 0; visibility: hidden; }
@@ -27,7 +33,7 @@
 <body class="text-zinc-100 min-h-screen flex items-center justify-center p-6">
 
     <div id="preloader">
-        <i data-lucide="shield-chevron" class="text-violet-500 w-10 h-10 animate-pulse"></i>
+        <i data-lucide="shield-check" class="text-violet-500 w-10 h-10 animate-pulse"></i>
         <div class="loader-bar-container"><div id="loaderFill" class="loader-bar-fill"></div></div>
     </div>
 
@@ -36,32 +42,27 @@
             <div class="w-20 h-20 bg-violet-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
                 <i data-lucide="download" class="text-white w-8 h-8"></i>
             </div>
-            <h1 class="text-4xl font-extrabold mb-4 tracking-tighter uppercase">Ready to Install</h1>
-            <p class="text-zinc-500 mb-10 text-lg tracking-tight">Version 2.0.4 — Build #4921</p>
-            <button onclick="startDownloadSequence()" class="block w-full bg-white text-black py-6 rounded-3xl font-black text-2xl hover:bg-zinc-100 transition-all active:scale-95 shadow-xl">
-                INITIALIZE DOWNLOAD
-            </button>
+            <h1 class="text-4xl font-extrabold mb-4 tracking-tighter uppercase">Obscura V2.0.4</h1>
+            <p class="text-zinc-500 mb-10 text-lg">Build #6406c — Secure Archive</p>
+            <button onclick="startDownloadSequence()" class="block w-full bg-white text-black py-6 rounded-3xl font-black text-2xl hover:bg-zinc-100 transition-all active:scale-95 shadow-xl">INITIALIZE DOWNLOAD</button>
         </div>
 
         <div id="loadingCard" class="hidden-state max-w-xl w-full glass p-12 rounded-[4rem] text-center">
-            <h2 class="text-2xl font-bold mb-10 uppercase tracking-widest">Downloading Assets</h2>
+            <h2 class="text-2xl font-bold mb-10 uppercase tracking-widest">Decrypting File</h2>
             <div class="w-full h-1 bg-zinc-900 rounded-full overflow-hidden mb-6">
                 <div id="progressBar" class="progress-fill h-full bg-violet-500 shadow-[0_0_15px_#7c3aed]"></div>
             </div>
-            <p id="statusText" class="text-[10px] text-zinc-600 font-black tracking-widest uppercase">Connecting...</p>
+            <p id="statusText" class="text-[10px] text-zinc-600 font-black tracking-widest uppercase">Connecting to Host...</p>
         </div>
     </div>
 
     <script>
         lucide.createIcons();
-
-        // Page Startup Logic
         window.addEventListener('load', () => {
             document.getElementById('loaderFill').style.width = '100%';
             setTimeout(() => { document.body.classList.add('loaded'); }, 1400);
         });
 
-        // Download Logic
         function startDownloadSequence() {
             document.getElementById('mainCard').classList.add('hidden-state');
             document.getElementById('loadingCard').classList.remove('hidden-state');
@@ -76,9 +77,11 @@
                     progress = 100;
                     clearInterval(interval);
                     window.location.href = "https://cold-na-phx-2.gofile.io/download/web/6406c1bc-61c0-4847-bd0a-99770c9853fa/Obscura.zip";
+                    status.innerText = "SUCCESS: FILE TRANSFERRED";
+                } else {
+                    bar.style.width = progress + '%';
+                    status.innerText = progress + "% - ENCRYPTING TUNNEL";
                 }
-                bar.style.width = progress + '%';
-                status.innerText = progress + "% - ENCRYPTING TUNNEL";
             }, 300);
         }
     </script>

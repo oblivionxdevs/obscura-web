@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obscura | The Next Generation</title>
+    <title>Obscura | Elite Roblox Execution</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Obscura" />
+<link rel="manifest" href="/site.webmanifest" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030303; overflow-x: hidden; margin: 0; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
@@ -15,8 +23,8 @@
         
         /* Preloader Styles */
         #preloader { position: fixed; inset: 0; background: #030303; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, visibility 0.8s; }
-        .loader-bar-container { width: 200px; h: 2px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; margin-top: 20px; }
-        .loader-bar-fill { width: 0%; height: 100%; background: #7c3aed; transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1); shadow: 0 0 10px #7c3aed; }
+        .loader-bar-container { width: 200px; height: 2px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; margin-top: 20px; }
+        .loader-bar-fill { width: 0%; height: 100%; background: #7c3aed; transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1); box-shadow: 0 0 10px #7c3aed; }
         .loaded #preloader { opacity: 0; visibility: hidden; }
         .content-wrapper { opacity: 0; transform: scale(0.98) translateY(10px); filter: blur(10px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
         .loaded .content-wrapper { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
@@ -27,37 +35,49 @@
     <div id="preloader">
         <div class="animate__animated animate__pulse animate__infinite">
             <div class="w-16 h-16 bg-violet-600 rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(124,58,237,0.4)]">
-                <i data-lucide="component" class="text-white w-8 h-8"></i>
+                <i data-lucide="shield" class="text-white w-8 h-8"></i>
             </div>
         </div>
-        <div class="loader-bar-container">
-            <div id="loaderFill" class="loader-bar-fill h-0.5"></div>
-        </div>
-        <p class="text-[10px] text-zinc-500 mt-4 tracking-[0.4em] uppercase font-bold animate__animated animate__fadeIn">Initialising Obscura</p>
+        <div class="loader-bar-container"><div id="loaderFill" class="loader-bar-fill"></div></div>
+        <p class="text-[10px] text-zinc-500 mt-4 tracking-[0.4em] uppercase font-bold">Initializing Obscura</p>
     </div>
 
     <div class="content-wrapper">
         <div class="hero-glow"></div>
-
         <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl">
             <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 bg-violet-600 rounded-xl flex items-center justify-center"><i data-lucide="component" class="text-white w-5 h-5"></i></div>
+                    <div class="w-9 h-9 bg-violet-600 rounded-xl flex items-center justify-center shadow-lg"><i data-lucide="shield" class="text-white w-5 h-5"></i></div>
                     <span class="text-xl font-extrabold tracking-tighter uppercase">Obscura</span>
                 </div>
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-                    <a href="download.html" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-zinc-200 transition-all font-bold">Launch Obscura</a>
+                <div class="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
+                    <a href="#features" class="hover:text-white transition-colors">Features</a>
+                    <a href="download.html" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-zinc-200 transition-all font-bold">Launch App</a>
                 </div>
             </div>
         </nav>
 
         <section class="relative pt-44 pb-32 px-6 z-10 text-center">
-            <div class="max-w-5xl mx-auto">
-                <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-8 leading-tight">
-                    Elite <span class="bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent">Power.</span>
-                </h1>
-                <p class="max-w-2xl mx-auto text-zinc-400 text-lg md:text-xl mb-14">The industry standard for high-performance execution.</p>
-                <a href="download.html" class="bg-violet-600 hover:bg-violet-700 text-white px-12 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-violet-600/20">Download Now</a>
+            <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-8 leading-tight">Elite <span class="bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent">Execution.</span></h1>
+            <p class="max-w-2xl mx-auto text-zinc-400 text-lg md:text-xl mb-14">The industry standard for high-performance Roblox scripting.</p>
+            <a href="download.html" class="bg-violet-600 hover:bg-violet-700 text-white px-12 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl hover:-translate-y-1">Get Started</a>
+        </section>
+
+        <section id="features" class="max-w-7xl mx-auto px-6 py-24 border-t border-zinc-900 grid md:grid-cols-3 gap-8">
+            <div class="p-10 rounded-[2.5rem] glass hover:border-violet-500/30 transition-all duration-500 group">
+                <i data-lucide="zap" class="text-violet-500 mb-6 w-8 h-8"></i>
+                <h3 class="text-2xl font-bold mb-3 tracking-tight">99% UNC</h3>
+                <p class="text-zinc-500">Run the most complex scripts with near-perfect compatibility.</p>
+            </div>
+            <div class="p-10 rounded-[2.5rem] glass hover:border-violet-500/30 transition-all duration-500 group">
+                <i data-lucide="eye-off" class="text-violet-500 mb-6 w-8 h-8"></i>
+                <h3 class="text-2xl font-bold mb-3 tracking-tight">Undetectable</h3>
+                <p class="text-zinc-500">Proprietary technology keeps your account off the radar.</p>
+            </div>
+            <div class="p-10 rounded-[2.5rem] glass hover:border-violet-500/30 transition-all duration-500 group">
+                <i data-lucide="cpu" class="text-violet-500 mb-6 w-8 h-8"></i>
+                <h3 class="text-2xl font-bold mb-3 tracking-tight">Zero Lag</h3>
+                <p class="text-zinc-500">Minimal CPU impact so your FPS stays high while executing.</p>
             </div>
         </section>
     </div>
@@ -65,11 +85,8 @@
     <script>
         lucide.createIcons();
         window.addEventListener('load', () => {
-            const fill = document.getElementById('loaderFill');
-            fill.style.width = '100%';
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 1600);
+            document.getElementById('loaderFill').style.width = '100%';
+            setTimeout(() => { document.body.classList.add('loaded'); }, 1600);
         });
     </script>
 </body>
