@@ -30,7 +30,7 @@
             status.innerText = "Requesting from Render...";
             
             try {
-                const res = await fetch('https://obscura-server.onrender.com/generate');
+                const res = await fetch('https://obscura-server.onrender.com/generate?admin_key=qwertyuiopasdfghjklzxcvbnm11111!!!!');
                 const data = await res.json();
                 
                 if (data.success) {
