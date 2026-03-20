@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; background: #050506; color: #fff; font-family: 'Inter'; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .card { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); padding: 50px; border-radius: 24px; width: 400px; text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.8); }
+        .premium-tag { background: #A37CFF; color: #000; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+        h1 { font-size: 32px; letter-spacing: -1px; margin: 10px 0; }
+        .price-hero { font-size: 48px; font-weight: 700; margin: 20px 0; color: #fff; }
+        .price-hero span { font-size: 16px; color: #555; }
+        .features { text-align: left; margin: 30px 0; list-style: none; padding: 0; }
+        .features li { font-size: 13px; color: #888; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .features li::before { content: "✓"; color: #A37CFF; font-weight: bold; }
+        .btn { background: #fff; color: #000; border: none; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; width: 100%; text-decoration: none; display: block; transition: 0.2s; }
+        .btn:hover { background: #A37CFF; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="premium-tag">Lifetime Access</div>
+        <h1>Obscura Premium</h1>
+        <div class="price-hero">Robux: 400<span>/one-time</span></div>
+        
+        <ul class="features">
+            <li>Instant DLL Injection</li>
+            <li>No Key System (Bypass)</li>
+            <li>Cloud Script Saving</li>
+            <li>24/7 Priority Support</li>
+        </ul>
+
+        <a href="https://your-stripe-or-paypal-link.com" class="btn">Purchase License</a>
+        <p style="font-size: 11px; color: #444; margin-top: 20px;">Keys are sent to your email immediately after checkout.</p>
+    </div>
+</body>
+</html>
