@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #050506; --accent: #A37CFF; --border: #1A1A1C; }
+        body { margin: 0; background: var(--bg); color: #fff; font-family: 'Inter'; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .admin-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 40px; border-radius: 20px; width: 400px; text-align: center; backdrop-filter: blur(10px); }
+        .key-box { background: #000; border: 1px solid var(--border); padding: 20px; border-radius: 12px; font-family: 'JetBrains Mono'; color: var(--accent); font-size: 18px; margin: 25px 0; display: none; cursor: pointer; }
+        .btn { background: var(--accent); color: #000; border: none; padding: 15px; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(163, 124, 255, 0.4); }
+        .status { font-size: 12px; color: #555; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="admin-card">
+        <h1 style="letter-spacing: -1px;">Obscura Admin</h1>
+        <p style="color:#555; font-size: 14px;">Master Key Generation Panel</p>
+        
+        <div id="result" class="key-box" onclick="copyKey()"></div>
+
+        <button class="btn" onclick="generate()">Create Premium Key</button>
+        <div id="status" class="status">Waiting for action...</div>
+    </div>
+
+    <script>
+        async function generate() {
+            const status = document.getElementById('status');
+            const result = document.getElementById('result');
+            status.innerText = "Requesting from Render...";
+            
+            try {
+                const res = await fetch('https://obscura-server.onrender.com/generate');
+                const data = await res.json();
+                
+                if (data.success) {
+                    result.innerText = data.key;
+                    result.style.display = 'block';
+                    status.innerText = "Key generated! Click to copy.";
+                }
+            } catch (err) {
+                status.innerText = "Error: Check if API is awake.";
+            }
+        }
+
+        function copyKey() {
+            const text = document.getElementById('result').innerText;
+            navigator.clipboard.writeText(text);
+            document.getElementById('status').innerText = "Copied to clipboard!";
+        }
+    </script>
+</body>
+</html>
